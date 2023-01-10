@@ -6,6 +6,11 @@
 
 extern const unsigned int NUM_BALLS;
 extern tballs balls;
+extern char text[100];
+extern char text2[100];
+extern char text3[100];
+extern char text4[100];
+extern char text5[100];
 
 //unsigned int CGameRender::texbkg = 0;
 //unsigned int CGameRender::texsmallball = 0;
@@ -13,8 +18,8 @@ extern tballs balls;
 void CGameRender::RenderInit()
 {
   // Load textures
-  texbkg = CORE_LoadPNG("..data/circle-bkg-128.png", true);
-  texsmallball = CORE_LoadPNG("..data/tyrian_ball.png", false);
+  texbkg = CORE_LoadPNG("data/circle-bkg-128.png", true);
+  texsmallball = CORE_LoadPNG("data/tyrian_ball.png", false);
 
 	FONT_Init();
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT); // Sets up clipping.
@@ -48,7 +53,11 @@ void CGameRender::Draw()
 	}
 
 	// Text
-	FONT_DrawString(vec2(SCR_WIDTH / 2 - 6 * 16, 16), "HELLO WORLD!");
+	FONT_DrawString(vec2(450,0), text);
+	FONT_DrawString(vec2(0,0), text2);
+	FONT_DrawString(vec2(0,50), text3);
+	FONT_DrawString(vec2(0,100), text4);
+	FONT_DrawString(vec2(0,150), text5);
 
 	// Exchanges the front and back buffers
 	SYS_Show();

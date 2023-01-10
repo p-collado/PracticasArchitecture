@@ -22,8 +22,10 @@ int Main(void)
 	game.GameInit(render.texsmallball);
 
 	LARGE_INTEGER StartTime;
+	LARGE_INTEGER StartTimeLogic;
 	QueryPerformanceCounter(&StartTime);
 	LARGE_INTEGER EndTime;
+	LARGE_INTEGER EndTimeLogic;
 	LARGE_INTEGER frequency;
 	QueryPerformanceFrequency(&frequency);
 	//LARGE_INTEGER elapsed;
@@ -33,15 +35,13 @@ int Main(void)
 	double fps = 0.f;
 	double tiempoTranscurrido = 0.f;
 	double tiempoLogica = 0.f;
-	double timeMultiplier = 1.f;
+	double timeMultiplier = 2.f;
 
 	while (!SYS_GottaQuit()) {	// Controlling a request to terminate an application.
 
-		//elapsed.QuadPart = ((EndTime.QuadPart - StartTime.QuadPart) / frequency.QuadPart);/*GetTime(&EndTime,&StartTime,&frequency)*/ /*currentTime - previousTime*/;
-		//delapsed = (double)elapsed.QuadPart;
-
 		QueryPerformanceCounter(&EndTime);
 
+		fps = 1.f / elapsed;
 		elapsed += GetTime(&EndTime, &StartTime, &frequency);
 		elapsed *= timeMultiplier;
 
@@ -51,17 +51,18 @@ int Main(void)
 		}
 
 		delapsed = GetTime(&EndTime, &StartTime, &frequency);
-
 		tiempoTranscurrido += delapsed;
 		StartTime = EndTime;
-		fps = 1.f / elapsed;
 		if (elapsed > 0) {
 
-			while (elapsed > fixedTick) {
+			while (elapsed >= fixedTick) {
+				QueryPerformanceCounter(&StartTimeLogic);
 				//SYS_Sleep(17);  //2.5 efectivamente va bajando los FPS progresivamente, espiral de la muerte no solucionado
 				game.GameUpdate(elapsed);
-				tiempoLogica += elapsed;
 				elapsed = elapsed - fixedTick;
+				tiempoLogica += fixedTick;
+				QueryPerformanceCounter(&EndTimeLogic);
+				//tiempoLogica += GetTime(&StartTimeLogic, &EndTimeLogic, &frequency);
 			}
 			//game.GameUpdate();
 			render.Draw();
@@ -70,7 +71,7 @@ int Main(void)
 			sprintf(text2, "TIEMPO DE REAL: %.2f", tiempoTranscurrido);
 			sprintf(text3, "TIEMPO DE LOGICA: %.2f", tiempoLogica);
 			sprintf(text4, "MULTIPLICADOR DE TIEMPO: X%.2f", timeMultiplier);
-			sprintf(text5, "TIEMPO DE JUEGO: %.2f", tiempoLogica);
+			sprintf(text5, "TIEMPO DE JUEGO: %.2f", tiempoLogica * timeMultiplier);
 		}
 
 		//SYS_Pump();	// Process Windows messages.
@@ -84,13 +85,7 @@ int Main(void)
 
 double GetTime(LARGE_INTEGER* _Current, LARGE_INTEGER* _Time, LARGE_INTEGER* _freq)
 {
-	//LARGE_INTEGER resul2;
-	//resul2.QuadPart = (_Current->LowPart - _Time->LowPart);
-	////resul2.QuadPart *= 1000000;
-	//resul2.QuadPart /= _freq->QuadPart;
-	//return static_cast<double>(resul2.LowPart);
 	double result;
-	return	result = static_cast<double>(_Current->QuadPart - _Time->QuadPart) / /*static_cast<double>*/(_freq->QuadPart);
-	//return	result = static_cast<double>((_Current->QuadPart - _Time->QuadPart) /__int64(3000000000) /* _freq->QuadPart*/);
+	return	result = static_cast<double>(_Current->QuadPart - _Time->QuadPart) / (_freq->QuadPart);
 
 }
