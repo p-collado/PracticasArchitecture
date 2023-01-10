@@ -22,13 +22,13 @@ void CGame::GameInit(unsigned int _texsmall)
 	}
 }
 
-void CGame::GameUpdate()
+void CGame::GameUpdate(double _elapsed)
 {
 
 	// Run balls
 	for (int i = 0; i < NUM_BALLS; i++) {
 		// New Pos.
-		vec2 newpos = balls[i].pos + balls[i].vel;
+		vec2 newpos = balls[i].pos + balls[i].vel * _elapsed;
 
 		// Collision detection.
 		bool collision = false;

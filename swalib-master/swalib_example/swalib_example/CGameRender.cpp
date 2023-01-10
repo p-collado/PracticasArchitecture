@@ -13,8 +13,8 @@ extern tballs balls;
 void CGameRender::RenderInit()
 {
   // Load textures
-  texbkg = CORE_LoadPNG("data/circle-bkg-128.png", true);
-  texsmallball = CORE_LoadPNG("data/tyrian_ball.png", false);
+  texbkg = CORE_LoadPNG("..data/circle-bkg-128.png", true);
+  texsmallball = CORE_LoadPNG("..data/tyrian_ball.png", false);
 
 	FONT_Init();
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT); // Sets up clipping.

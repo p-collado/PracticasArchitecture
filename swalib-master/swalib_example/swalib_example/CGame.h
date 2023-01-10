@@ -26,7 +26,7 @@ class CGame
 {
 public:
 	void GameInit(unsigned int _texsmall);
-	void GameUpdate();
+	void GameUpdate(double _elapsed);
 	void GameEnd();
 };
 
