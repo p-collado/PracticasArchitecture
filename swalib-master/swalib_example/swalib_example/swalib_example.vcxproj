@@ -127,6 +127,7 @@
     <ClCompile Include="..\..\common\lodepng.cpp" />
     <ClCompile Include="..\..\common\stdafx.cpp" />
     <ClCompile Include="..\..\common\sys_win.cpp" />
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="CGame.cpp" />
     <ClCompile Include="CGameRender.cpp" />
   </ItemGroup>
@@ -137,6 +138,7 @@
     <ClInclude Include="..\..\common\stdafx.h" />
     <ClInclude Include="..\..\common\sys.h" />
     <ClInclude Include="..\..\common\vector2d.h" />
+    <ClInclude Include="ball.h" />
     <ClInclude Include="CGame.h" />
     <ClInclude Include="CGameRender.h" />
   </ItemGroup>

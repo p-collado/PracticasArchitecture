@@ -15,10 +15,10 @@ void CGame::GameInit(unsigned int _texsmall)
 
 	// Init game state.
 	for (int i = 0; i < NUM_BALLS; i++) {
-		balls[i].pos = vec2(CORE_FRand(0.0, SCR_WIDTH), CORE_FRand(0.0, SCR_HEIGHT));
-		balls[i].vel = vec2(CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED), CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED));
-		balls[i].radius = 16.f;
-		balls[i].gfx = _texsmall;
+		balls[i].setPos(vec2(CORE_FRand(0.0, SCR_WIDTH), CORE_FRand(0.0, SCR_HEIGHT)));
+		balls[i].setVel(vec2(CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED), CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED)));
+		balls[i].setRadius(16.f);
+		balls[i].setGFX(_texsmall);
 	}
 }
 

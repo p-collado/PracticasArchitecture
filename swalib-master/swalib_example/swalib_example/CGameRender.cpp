@@ -10,7 +10,6 @@ extern char text[100];
 extern char text2[100];
 extern char text3[100];
 extern char text4[100];
-extern char text5[100];
 
 //unsigned int CGameRender::texbkg = 0;
 //unsigned int CGameRender::texsmallball = 0;
@@ -57,7 +56,6 @@ void CGameRender::Draw()
 	FONT_DrawString(vec2(0,0), text2);
 	FONT_DrawString(vec2(0,50), text3);
 	FONT_DrawString(vec2(0,100), text4);
-	FONT_DrawString(vec2(0,150), text5);
 
 	// Exchanges the front and back buffers
 	SYS_Show();
