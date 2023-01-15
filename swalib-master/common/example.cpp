@@ -39,7 +39,7 @@ int Main(void)
 
 		QueryPerformanceCounter(&EndTime);
 		elapsed += GetTime(&EndTime, &StartTime, &frequency);
-		elapsed *= timeMultiplier;
+		elapsed *= timeMultiplier; //2.7 Multiplicador de tiempo
 
 		if (elapsed > 1.f / 15) //2.6 Solucion de la espiral
 		{
