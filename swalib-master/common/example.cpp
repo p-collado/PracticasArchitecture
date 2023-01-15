@@ -54,13 +54,13 @@ int Main(void)
 			while (elapsed >= fixedTick) 
 			{
 				//SYS_Sleep(17);  //2.5 efectivamente va bajando los FPS progresivamente, espiral de la muerte no solucionado
-				counter += 1;
 				game.GameUpdate(fixedTick);
 				elapsed = elapsed - fixedTick;
 				tiempoLogica += fixedTick;
+				++counter;
 			}
 
-			fps = 1.f / counter*fixedTick;
+			fps = counter / tiempoTranscurrido;
 			render.Draw();
 
 			sprintf(text, "FPS: %.2f", fps);
