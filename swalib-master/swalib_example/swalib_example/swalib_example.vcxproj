@@ -130,6 +130,9 @@
     <ClCompile Include="ball.cpp" />
     <ClCompile Include="CGame.cpp" />
     <ClCompile Include="CGameRender.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\common\core.h" />
@@ -141,6 +144,9 @@
     <ClInclude Include="ball.h" />
     <ClInclude Include="CGame.h" />
     <ClInclude Include="CGameRender.h" />
+    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

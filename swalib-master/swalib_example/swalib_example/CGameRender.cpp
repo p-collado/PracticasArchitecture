@@ -3,22 +3,28 @@
 #include "../../common/font.h"
 #include "../../common/core.h"
 #include "../../common/sys.h"
-
 extern const unsigned int NUM_BALLS;
 extern tballs balls;
+
 extern char text[100];
 extern char text2[100];
 extern char text3[100];
 extern char text4[100];
 
-//unsigned int CGameRender::texbkg = 0;
-//unsigned int CGameRender::texsmallball = 0;
-
 void CGameRender::RenderInit()
 {
+	LoadTexture("data/circle-bkg-128.png", true);
+	LoadTexture("data/tyrian_ball.png", false);
+
   // Load textures
-  texbkg = CORE_LoadPNG("data//circle-bkg-128.png", true);
-  texsmallball = CORE_LoadPNG("data//tyrian_ball.png", false);
+ /* texbkg = CORE_LoadPNG("data/circle-bkg-128.png", true);
+	texsmallball = CORE_LoadPNG("data/tyrian_ball.png", false);*/
+  
+	/*for (size_t i = 0; i < EntityManager::getInstance()->getNumBalls(); i++)
+	{
+		EntityManager::getInstance()->getBalls()[i]->setGFX(texsmallball);
+	}*/
+	
 
 	FONT_Init();
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT); // Sets up clipping.
@@ -34,7 +40,8 @@ void CGameRender::RenderInit()
 
 }
 
-void CGameRender::Draw()
+
+ void CGameRender::Draw()
 {
 	// Render
 	glClear(GL_COLOR_BUFFER_BIT);	// Clear color buffer to preset values.
@@ -42,13 +49,14 @@ void CGameRender::Draw()
 	// Render backgground
 	for (int i = 0; i <= SCR_WIDTH / 128; i++) {
 		for (int j = 0; j <= SCR_HEIGHT / 128; j++) {
+			//CGameRender::RenderDrawSomething(vec2(i * 128.f + 64.f, j * 128.f + 64.f), vec2(128.f, 128.f), texbkg);
 			CORE_RenderCenteredSprite(vec2(i * 128.f + 64.f, j * 128.f + 64.f), vec2(128.f, 128.f), texbkg);
 		}
 	}
 
 	// Render balls
-	for (int i = 0; i < NUM_BALLS; i++) {
-		CORE_RenderCenteredSprite(balls[i].pos, vec2(balls[i].radius * 2.f, balls[i].radius * 2.f), balls[i].gfx);
+	for (int i = 0; i < EntityManager::getInstance()->getNumBalls(); i++) {
+		CORE_RenderCenteredSprite(EntityManager::getInstance()->getBalls()[i]->getPos(), vec2(EntityManager::getInstance()->getBalls()[i]->getRadius() * 2.f, EntityManager::getInstance()->getBalls()[i]->getRadius() * 2.f), EntityManager::getInstance()->getBalls()[i]->getGFX());
 	}
 
 	// Text
@@ -68,4 +76,15 @@ void CGameRender::RenderEnd()
 	CORE_UnloadPNG(texbkg);
 	CORE_UnloadPNG(texsmallball);
 	FONT_End();
+}
+
+unsigned int CGameRender::LoadTexture(const char* filename, bool _alpha)
+{
+	if (maptexture.count(filename))
+	{
+		return maptexture[filename]->getTexture();
+	}
+
+	maptexture[filename] = new Sprite();
+	maptexture[filename]->LoadTexture(filename, _alpha);
 }
