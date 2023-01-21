@@ -3,8 +3,7 @@
 #include "../../common/font.h"
 #include "../../common/core.h"
 #include "../../common/sys.h"
-extern const unsigned int NUM_BALLS;
-extern tballs balls;
+#include "EntityManager.h"
 
 extern char text[100];
 extern char text2[100];
