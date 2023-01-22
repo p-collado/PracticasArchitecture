@@ -42,7 +42,7 @@ void Time::setTimeFreq()
   QueryPerformanceFrequency(&frequency);
 }
 
-void Time::setFPS()
+void Time::CalculateFPS()
 {
   fps = counter / tiempoTranscurrido;
 }

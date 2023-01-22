@@ -1,10 +1,14 @@
 #pragma once
 #include<unordered_map>
+#include<vector>
+
+class CTexture;
 class Sprite;
 class CGameRender
 {
   CGameRender();
-  std::unordered_map<const char*, Sprite*> maptexture;
+  std::unordered_map<const char*, CTexture*> maptexture;
+  std::vector<Sprite*> spritesref;
   static CGameRender* instance;
 
 public:
@@ -19,13 +23,14 @@ public:
     }
     else
     {
-      instance = new CGameRender();
+      return instance = new CGameRender();
     }
   }
 
   void RenderInit();
-  static void Draw();
+  void Draw();
   void RenderEnd();
-  unsigned int LoadTexture(const char* filename, bool _alpha);
+  CTexture* LoadTexture(const char* filename, bool _alpha);
+  Sprite* getSpriteinPos(int i);
 };
 

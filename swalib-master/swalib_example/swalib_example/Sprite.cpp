@@ -1,12 +1,30 @@
 #include "Sprite.h"
-#include "../../common/core.h"
 
-void Sprite::setTexture(unsigned int _texture)
+#include <cstdio>
+
+#include "CTexture.h"
+
+void Sprite::setSize(vec2& _size)
 {
-  id = _texture;
+  size = _size;
+}
+
+void Sprite::setPos(vec2& _pos)
+{
+  pos = _pos;
+}
+
+CTexture* Sprite::getTexture()
+{
+  return texture;
+}
+
+void Sprite::setTexture(CTexture* _ref)
+{
+  texture = _ref;
 }
 
 void Sprite::LoadTexture(const char* filename, bool _alpha)
 {
-  id = CORE_LoadPNG(filename, true);
+  texture->LoadTexture(filename,_alpha);
 }

@@ -1,7 +1,8 @@
 #pragma once
-//#include "ball.h"
 #include<vector>
 
+class CBackground;
+class Sprite;
 class ball;
 class EntityManager
 {
@@ -9,7 +10,9 @@ class EntityManager
   EntityManager();
   static EntityManager* instance;
   const int NUM_BALL = 10;
-  std::vector<class ball*> balls;
+  std::vector< ball*> balls;
+  CBackground* back;
+  
   float MAX_BALL_SPEED = 8.f * 60;
   
 
@@ -25,9 +28,11 @@ public:
     }
   }
 
-  inline int getNumBalls() { return NUM_BALL; };                  
-  inline std::vector<class ball*> getBalls() { return balls; };         
-  inline float getSpeed() { return MAX_BALL_SPEED; };             
+  void setSpriteComponent(std::vector<Sprite*> spriteref) const;
+  void Slot(double _elapsed);
+  inline int getNumBalls() { return NUM_BALL; }            
+  inline std::vector< ball*> getBalls() { return balls; }        
+  inline float getSpeed() { return MAX_BALL_SPEED; }          
   void Init();                                                    
                                                                   
                                                                   

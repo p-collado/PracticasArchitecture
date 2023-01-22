@@ -19,7 +19,7 @@ public:
 	void setTimeEndTime();
 	void setTimeStart();
 	void setTimeFreq();
-	void setFPS();
+	void CalculateFPS();
 	void setElapsed(double _elapsed);
 	void setDelapsed(double _delapsed);
 	void setTimeMultiplier(double _Timemul);

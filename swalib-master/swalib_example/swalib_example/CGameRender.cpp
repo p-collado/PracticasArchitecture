@@ -1,30 +1,41 @@
 #include "CGameRender.h"
-#include "CGame.h"
 #include "../../common/font.h"
-#include "../../common/core.h"
 #include "../../common/sys.h"
+#include "../../common/stdafx.h"
+#include "../../common/core.h"
 #include "EntityManager.h"
+#include "Sprite.h"
+#include "CTexture.h"
 
 extern char text[100];
 extern char text2[100];
 extern char text3[100];
 extern char text4[100];
 
+CGameRender* CGameRender::instance = nullptr;
+
+CGameRender::CGameRender()
+{
+	
+}
+
 void CGameRender::RenderInit()
 {
 	LoadTexture("data/circle-bkg-128.png", true);
 	LoadTexture("data/tyrian_ball.png", false);
 
-  // Load textures
- /* texbkg = CORE_LoadPNG("data/circle-bkg-128.png", true);
-	texsmallball = CORE_LoadPNG("data/tyrian_ball.png", false);*/
-  
-	/*for (size_t i = 0; i < EntityManager::getInstance()->getNumBalls(); i++)
-	{
-		EntityManager::getInstance()->getBalls()[i]->setGFX(texsmallball);
-	}*/
-	
 
+	spritesref.push_back(new Sprite);
+	spritesref.back()->setTexture(maptexture["data/circle-bkg-128.png"]);
+	
+	for (int i = 0; i < EntityManager::getInstance()->getNumBalls();  i++)
+	{
+		spritesref.push_back(new Sprite);
+		spritesref[i+1]->setTexture(maptexture["data/tyrian_ball.png"]);
+	}
+
+
+	
 	FONT_Init();
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT); // Sets up clipping.
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);	// Specifies clear values for the color buffers.
@@ -35,12 +46,10 @@ void CGameRender::RenderInit()
 	// NOTA: Mirar diferencias comentando las 2 siguientes funciones.
 	glEnable(GL_BLEND);	// Blend the incoming RGBA color values with the values in the color buffers.
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	// Blend func. for alpha color.
-
-
 }
 
 
- void CGameRender::Draw()
+void CGameRender::Draw()
 {
 	// Render
 	glClear(GL_COLOR_BUFFER_BIT);	// Clear color buffer to preset values.
@@ -48,42 +57,55 @@ void CGameRender::RenderInit()
 	// Render backgground
 	for (int i = 0; i <= SCR_WIDTH / 128; i++) {
 		for (int j = 0; j <= SCR_HEIGHT / 128; j++) {
-			//CGameRender::RenderDrawSomething(vec2(i * 128.f + 64.f, j * 128.f + 64.f), vec2(128.f, 128.f), texbkg);
-			CORE_RenderCenteredSprite(vec2(i * 128.f + 64.f, j * 128.f + 64.f), vec2(128.f, 128.f), texbkg);
+			CORE_RenderCenteredSprite(vec2( spritesref[0]->getPos().x + (i * 128.f + 64.f), spritesref[0]->getPos().y + (j * 128.f + 64.f)), vec2(128.f, 128.f), spritesref[0]->getTexture()->getTextureId());
 		}
 	}
 
 	// Render balls
 	for (int i = 0; i < EntityManager::getInstance()->getNumBalls(); i++) {
-		CORE_RenderCenteredSprite(EntityManager::getInstance()->getBalls()[i]->getPos(), vec2(EntityManager::getInstance()->getBalls()[i]->getRadius() * 2.f, EntityManager::getInstance()->getBalls()[i]->getRadius() * 2.f), EntityManager::getInstance()->getBalls()[i]->getGFX());
+		CORE_RenderCenteredSprite(spritesref[i+1]->getPos(), spritesref[i+1]->getSize() * 2, spritesref[i+1]->getTexture()->getTextureId());
 	}
 
 	// Text
-	FONT_DrawString(vec2(450,0), text);
-	FONT_DrawString(vec2(0,0), text2);
-	FONT_DrawString(vec2(0,50), text3);
-	FONT_DrawString(vec2(0,100), text4);
+	FONT_DrawString(vec2(450, 0), text);
+	FONT_DrawString(vec2(0, 0), text2);
+	FONT_DrawString(vec2(0, 50), text3);
+	FONT_DrawString(vec2(0, 100), text4);
 
 	// Exchanges the front and back buffers
 	SYS_Show();
 }
 
-void CGameRender::RenderEnd()
-{
-	// End app.
-// Unload textures.
-	CORE_UnloadPNG(texbkg);
-	CORE_UnloadPNG(texsmallball);
-	FONT_End();
-}
+ void CGameRender::RenderEnd()
+ {
+	 // End app.
+ // Unload textures.
 
-unsigned int CGameRender::LoadTexture(const char* filename, bool _alpha)
+	 for (const std::pair<const char*, CTexture*> var : maptexture)
+	 {
+		 CORE_UnloadPNG(var.second->getTextureId());
+		 delete var.second;
+	 }
+	 for (const Sprite* var : spritesref)
+	 {
+		 delete var;
+	 }
+	 maptexture.clear();
+	 FONT_End();
+ }
+
+CTexture* CGameRender::LoadTexture(const char* filename, bool _alpha)
 {
 	if (maptexture.count(filename))
 	{
-		return maptexture[filename]->getTexture();
+		return maptexture[filename];
 	}
-
-	maptexture[filename] = new Sprite();
+	maptexture[filename] = new CTexture;
 	maptexture[filename]->LoadTexture(filename, _alpha);
+	return maptexture[filename];
+}
+
+Sprite* CGameRender::getSpriteinPos(int i)
+{
+	return spritesref[i];
 }

@@ -1,11 +1,21 @@
 #pragma once
+#include "../../common/vector2d.h"
+
+class CTexture;
 class Sprite
 {
-  unsigned int id;
+    CTexture* texture;
+    vec2 pos;
+    vec2 size;
+  
 public:
-  void setTexture(unsigned int _texture);
-  inline unsigned int getTexture() { return id; };
-  void LoadTexture(const char* filename, bool _alpha);
+  void setSize(vec2& _size);
+   inline vec2 getSize() const {return size;}
+  void setPos(vec2& pos);
+    inline vec2 getPos() const {return pos;}
+    CTexture* getTexture();
+    void setTexture(CTexture* _ref);
+    void LoadTexture(const char* filename, bool _alpha);
 
 };
 

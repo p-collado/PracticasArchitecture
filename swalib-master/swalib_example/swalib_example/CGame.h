@@ -1,7 +1,4 @@
 #pragma once
-//#include "../../common/stdafx.h"
-//#include "../../common/vector2d.h"
-#include "ball.h"
 
 class CGame
 {
