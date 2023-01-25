@@ -4,29 +4,24 @@
 #include<unordered_map>
 #include "Sprite.h"
 #include "CBackground.h"
+#include "../../common/sys.h"
 
 EntityManager* EntityManager::instance= nullptr;
 
 void EntityManager::Init()
 {
-	back = new CBackground;
-	back->setSprite(CGameRender::getInstance()->getSpriteinPos(0));
+
+
+	back = new CBackground("data/circle-bkg-128.png", vec2(SCR_WIDTH, SCR_HEIGHT));
+	CGameRender::getInstance()->PushSprite(*back);
 
 	for (int i = 0; i < NUM_BALL; i++)
 	{
-		balls.push_back(new ball(i));
-		balls[i]->setSprite(CGameRender::getInstance()->getSpriteinPos(i+1));
+		balls.push_back(new ball(i, "data/tyrian_ball.png"));
+		CGameRender::getInstance()->PushSprite(balls[i]->getSpriteref());
 	}
 }
 
-
-void EntityManager::setSpriteComponent(std::vector<Sprite*> spriteref) const
-{
-	for (int i = 0; i < NUM_BALL; i++)
-	{
-		balls[i]->setSprite(spriteref[i]);
-	}
-}
 
 void EntityManager::Slot(double _elapsed)
 {
@@ -39,5 +34,5 @@ void EntityManager::Slot(double _elapsed)
 
 EntityManager::EntityManager()
 {
-	
+
 }

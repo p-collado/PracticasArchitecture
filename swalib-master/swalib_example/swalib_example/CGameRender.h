@@ -31,6 +31,8 @@ public:
   void Draw();
   void RenderEnd();
   CTexture* LoadTexture(const char* filename, bool _alpha);
+  CTexture* getTexture(const char* filename);
   Sprite* getSpriteinPos(int i);
+  void PushSprite(Sprite& ref);
 };
 

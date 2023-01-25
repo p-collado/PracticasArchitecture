@@ -27,8 +27,6 @@ public:
       instance = new EntityManager();
     }
   }
-
-  void setSpriteComponent(std::vector<Sprite*> spriteref) const;
   void Slot(double _elapsed);
   inline int getNumBalls() { return NUM_BALL; }            
   inline std::vector< ball*> getBalls() { return balls; }        

@@ -2,11 +2,10 @@
 #include "../../common/sys.h"
 #include "../../common/core.h"
 #include "EntityManager.h"
-#include "Sprite.h"
 #include <vector>
 
 
-Sprite* ball::getSpriteref()
+Sprite& ball::getSpriteref()
 {
 	return renderinfo;
 }
@@ -32,8 +31,7 @@ void ball::Slot(double _elapsed)
 		// New Pos.
 	vec2 newpos = pos + vel * _elapsed;
 
-	renderinfo->setPos(newpos);
-	renderinfo->setSize(vec2(radius,radius));
+	renderinfo.setPos(newpos);
 
 	// Collision detection.
 	bool collision = false;
@@ -66,17 +64,12 @@ void ball::Slot(double _elapsed)
 	}
 }
 
-void ball::setSprite(Sprite*_ref)
-{
-	renderinfo = _ref;
-}
-
-ball::ball(int _id)
+ball::ball(int _id, const char* filename) : renderinfo(filename, false)
 {
 	float MAX_BALL_SPEED = EntityManager::getInstance()->getSpeed();
 	id = _id;
 	pos = (vec2(CORE_FRand(0.0, SCR_WIDTH), CORE_FRand(0.0, SCR_HEIGHT)));
 	vel = (vec2(CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED), CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED)));
 	radius = 16.f;
-	renderinfo = nullptr;
+	renderinfo.setSize(vec2(radius * 2, radius * 2));
 }

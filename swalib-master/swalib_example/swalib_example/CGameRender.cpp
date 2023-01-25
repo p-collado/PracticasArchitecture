@@ -2,7 +2,6 @@
 #include "../../common/font.h"
 #include "../../common/sys.h"
 #include "../../common/stdafx.h"
-#include "../../common/core.h"
 #include "EntityManager.h"
 #include "Sprite.h"
 #include "CTexture.h"
@@ -21,21 +20,6 @@ CGameRender::CGameRender()
 
 void CGameRender::RenderInit()
 {
-	LoadTexture("data/circle-bkg-128.png", true);
-	LoadTexture("data/tyrian_ball.png", false);
-
-
-	spritesref.push_back(new Sprite);
-	spritesref.back()->setTexture(maptexture["data/circle-bkg-128.png"]);
-	
-	for (int i = 0; i < EntityManager::getInstance()->getNumBalls();  i++)
-	{
-		spritesref.push_back(new Sprite);
-		spritesref[i+1]->setTexture(maptexture["data/tyrian_ball.png"]);
-	}
-
-
-	
 	FONT_Init();
 	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT); // Sets up clipping.
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);	// Specifies clear values for the color buffers.
@@ -54,16 +38,11 @@ void CGameRender::Draw()
 	// Render
 	glClear(GL_COLOR_BUFFER_BIT);	// Clear color buffer to preset values.
 
-	// Render backgground
-	for (int i = 0; i <= SCR_WIDTH / 128; i++) {
-		for (int j = 0; j <= SCR_HEIGHT / 128; j++) {
-			CORE_RenderCenteredSprite(vec2( spritesref[0]->getPos().x + (i * 128.f + 64.f), spritesref[0]->getPos().y + (j * 128.f + 64.f)), vec2(128.f, 128.f), spritesref[0]->getTexture()->getTextureId());
-		}
-	}
+
 
 	// Render balls
-	for (int i = 0; i < EntityManager::getInstance()->getNumBalls(); i++) {
-		CORE_RenderCenteredSprite(spritesref[i+1]->getPos(), spritesref[i+1]->getSize() * 2, spritesref[i+1]->getTexture()->getTextureId());
+	for (int i = 0; i < spritesref.size(); i++) {
+		spritesref[i]->draw();
 	}
 
 	// Text
@@ -81,15 +60,11 @@ void CGameRender::Draw()
 	 // End app.
  // Unload textures.
 
-	 for (const std::pair<const char*, CTexture*> var : maptexture)
-	 {
-		 CORE_UnloadPNG(var.second->getTextureId());
-		 delete var.second;
+	 for (int i = 0; i < spritesref.size(); i++) {
+		 spritesref[i]->free();
 	 }
-	 for (const Sprite* var : spritesref)
-	 {
-		 delete var;
-	 }
+
+	 spritesref.clear();
 	 maptexture.clear();
 	 FONT_End();
  }
@@ -105,7 +80,17 @@ CTexture* CGameRender::LoadTexture(const char* filename, bool _alpha)
 	return maptexture[filename];
 }
 
+CTexture* CGameRender::getTexture(const char* filename)
+{
+	return maptexture[filename];
+}
+
 Sprite* CGameRender::getSpriteinPos(int i)
 {
 	return spritesref[i];
+}
+
+void CGameRender::PushSprite(Sprite& ref)
+{
+	spritesref.push_back(&ref);
 }
