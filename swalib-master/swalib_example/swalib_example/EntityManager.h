@@ -3,14 +3,14 @@
 
 class CBackground;
 class Sprite;
-class ball;
+class Entity;
 class EntityManager
 {
 
   EntityManager();
   static EntityManager* instance;
   const int NUM_BALL = 10;
-  std::vector< ball*> balls;
+  std::vector< Entity*> balls;
   CBackground* back;
   
   float MAX_BALL_SPEED = 8.f * 60;
@@ -29,7 +29,7 @@ public:
   }
   void Slot(double _elapsed);
   inline int getNumBalls() { return NUM_BALL; }            
-  inline std::vector< ball*> getBalls() { return balls; }        
+  inline std::vector< Entity*> getBalls() { return balls; }        
   inline float getSpeed() { return MAX_BALL_SPEED; }          
   void Init();                                                    
                                                                   

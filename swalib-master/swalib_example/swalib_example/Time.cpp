@@ -1,6 +1,6 @@
 #include "Time.h"
 #include "EntityManager.h"
-#include "ball.h"
+#include "Entity.h"
 
 double Time::GetTime()
 {

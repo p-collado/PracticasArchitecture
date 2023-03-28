@@ -90,7 +90,7 @@ Sprite* CGameRender::getSpriteinPos(int i)
 	return spritesref[i];
 }
 
-void CGameRender::PushSprite(Sprite& ref)
+void CGameRender::PushSprite( Sprite& ref)
 {
 	spritesref.push_back(&ref);
 }

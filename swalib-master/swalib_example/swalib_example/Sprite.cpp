@@ -5,10 +5,12 @@
 #include "..\..\common\stdafx.h"
 #include "..\..\common\core.h"
 
-Sprite::Sprite(const char* texturePath, bool _alpha)
+Sprite::Sprite(Entity* Owner, const char* texturepath, bool alpha)
 {
-  texture = CGameRender::getInstance()->LoadTexture(texturePath,_alpha);
+  owner = Owner;
+  texture = CGameRender::getInstance()->LoadTexture(texturepath, alpha);
 }
+
 
 void Sprite::setSize(vec2& _size)
 {
@@ -45,4 +47,9 @@ void Sprite::free()
   
   CORE_UnloadPNG(texture->getTextureId());
   delete texture;
+}
+
+void Sprite::Update(float elapsed)
+{
+    
 }

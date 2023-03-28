@@ -1,5 +1,5 @@
 #include "EntityManager.h"
-#include "ball.h"
+#include "Entity.h"
 #include "CGameRender.h"
 #include<unordered_map>
 #include "Sprite.h"
@@ -17,8 +17,8 @@ void EntityManager::Init()
 
 	for (int i = 0; i < NUM_BALL; i++)
 	{
-		balls.push_back(new ball(i, "data/tyrian_ball.png"));
-		CGameRender::getInstance()->PushSprite(balls[i]->getSpriteref());
+		balls.push_back(new Entity(i, "data/tyrian_ball.png"));
+		CGameRender::getInstance()->PushSprite(*(balls[i]->FindComponent<Sprite>()));
 	}
 }
 

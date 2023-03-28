@@ -4,9 +4,9 @@
 #include "CTexture.h"
 
 
-CBackground::CBackground(const char* filepath, vec2 _size) : Sprite(filepath, true)
+CBackground::CBackground(const char* filepath, vec2 _size) : Sprite(nullptr ,filepath, true)
 {
-  pos = vec2(0,0);
+	pos = vec2(0,0);
 	size = _size;
 }
 
