@@ -3,7 +3,7 @@
 #include "../../common/sys.h"
 #include "../../common/stdafx.h"
 #include "EntityManager.h"
-#include "Sprite.h"
+#include "SpriteComponent.h"
 #include "CTexture.h"
 
 extern char text[100];
@@ -85,12 +85,12 @@ CTexture* CGameRender::getTexture(const char* filename)
 	return maptexture[filename];
 }
 
-Sprite* CGameRender::getSpriteinPos(int i)
+SpriteComponent* CGameRender::getSpriteinPos(int i)
 {
 	return spritesref[i];
 }
 
-void CGameRender::PushSprite( Sprite& ref)
+void CGameRender::PushSprite( SpriteComponent& ref)
 {
 	spritesref.push_back(&ref);
 }

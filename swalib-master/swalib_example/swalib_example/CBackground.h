@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include "Sprite.h"
+#include "SpriteComponent.h"
 
-class CBackground: public Sprite
+class CBackground: public SpriteComponent
 {
     vec2 pos;
     vec2 size;
@@ -13,4 +13,5 @@ public:
     void setPos(const vec2& _pos) {pos = _pos;}
     void setSize(const vec2& _size) {size = _size;}
     virtual void draw() override;
+    void Update(float elapsed) override;
 };

@@ -2,7 +2,7 @@
 #include<vector>
 
 class CBackground;
-class Sprite;
+class SpriteComponent;
 class Entity;
 class EntityManager
 {
@@ -10,11 +10,8 @@ class EntityManager
   EntityManager();
   static EntityManager* instance;
   const int NUM_BALL = 10;
-  std::vector< Entity*> balls;
+  std::vector<Entity*> balls;
   CBackground* back;
-  
-  float MAX_BALL_SPEED = 8.f * 60;
-  
 
 public:
   inline static EntityManager* getInstance() {
@@ -24,16 +21,14 @@ public:
     }
     else
     {
-      instance = new EntityManager();
+     return instance = new EntityManager();
     }
   }
   void Slot(double _elapsed);
   inline int getNumBalls() { return NUM_BALL; }            
   inline std::vector< Entity*> getBalls() { return balls; }        
-  inline float getSpeed() { return MAX_BALL_SPEED; }          
+  // inline float getSpeed() { return MAX_BALL_SPEED; }          
   void Init();                                                    
-                                                                  
-                                                                  
 };                                                                
                                                                   
                                                                   

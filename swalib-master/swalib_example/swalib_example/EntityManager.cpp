@@ -2,23 +2,26 @@
 #include "Entity.h"
 #include "CGameRender.h"
 #include<unordered_map>
-#include "Sprite.h"
+#include "SpriteComponent.h"
 #include "CBackground.h"
+#include "CollisionComponent.h"
+#include "MovementComponent.h"
 #include "../../common/sys.h"
 
 EntityManager* EntityManager::instance= nullptr;
 
 void EntityManager::Init()
 {
-
-
 	back = new CBackground("data/circle-bkg-128.png", vec2(SCR_WIDTH, SCR_HEIGHT));
 	CGameRender::getInstance()->PushSprite(*back);
 
 	for (int i = 0; i < NUM_BALL; i++)
 	{
-		balls.push_back(new Entity(i, "data/tyrian_ball.png"));
-		CGameRender::getInstance()->PushSprite(*(balls[i]->FindComponent<Sprite>()));
+		balls.push_back(new Entity(i));
+		balls[i]->AddComponent(new CollisionComponent(balls[i], 20, 20, 20));
+		balls[i]->AddComponent(new MovementComponent(balls[i]));
+		balls[i]->AddComponent(new SpriteComponent(balls[i], vec2(20, 20), "data/tyrian_ball.png", false));
+		CGameRender::getInstance()->PushSprite(*(balls[i]->FindComponent<SpriteComponent>()));
 	}
 }
 

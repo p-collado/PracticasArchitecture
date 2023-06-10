@@ -4,7 +4,7 @@
 
 class Entity;
 class CTexture;
-class Sprite : public Componente
+class SpriteComponent : public Componente
 {
     CTexture* texture;
     vec2 pos;
@@ -12,7 +12,8 @@ class Sprite : public Componente
     Entity* owner;
   
 public:
-    Sprite(Entity* Owner, const char* texturePath, bool Alpha);
+    SpriteComponent(Entity* Owner, vec2 Size, const char* texturePath, bool Alpha);
+    void InitSprite();
     void setSize(vec2& _size);
     inline vec2 getSize() const {return size;}
     void setPos(vec2& pos);
@@ -23,6 +24,7 @@ public:
     virtual void draw();
     void free();
     virtual void Update(float elapsed) override;
+    void RecieveMessage(Message* Msg) override;
 
 };
 

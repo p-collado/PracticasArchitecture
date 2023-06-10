@@ -3,12 +3,12 @@
 #include<vector>
 
 class CTexture;
-class Sprite;
+class SpriteComponent;
 class CGameRender
 {
   CGameRender();
   std::unordered_map<const char*, CTexture*> maptexture;
-  std::vector<Sprite*> spritesref;
+  std::vector<SpriteComponent*> spritesref;
   static CGameRender* instance;
 
 public:
@@ -32,7 +32,7 @@ public:
   void RenderEnd();
   CTexture* LoadTexture(const char* filename, bool _alpha);
   CTexture* getTexture(const char* filename);
-  Sprite* getSpriteinPos(int i);
-  void PushSprite(Sprite& ref);
+  SpriteComponent* getSpriteinPos(int i);
+  void PushSprite(SpriteComponent& ref);
 };
 

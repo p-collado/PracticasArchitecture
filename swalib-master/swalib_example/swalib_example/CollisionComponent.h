@@ -9,7 +9,7 @@ class CollisionComponent : public Componente
     vec2 Vel;
 
 public:
-    CollisionComponent(Entity* owner);
+    CollisionComponent(Entity* owner, float _Radius,  vec2 _Pos, vec2 _Vel);
     vec2 get_pos() const;
     void set_pos(const vec2& pos);
     float get_radius() const;
@@ -17,4 +17,5 @@ public:
     vec2 get_vel() const;
     void set_vel(const vec2& vel);
     virtual void Update(float elapsed) override;
+    void RecieveMessage(Message* Msg) override;
 };
