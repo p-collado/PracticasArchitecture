@@ -52,7 +52,7 @@ void MovementComponent::RecieveMessage(Message* Msg) //TODO: poner elses
 MovementComponent::MovementComponent(Entity* owner)
 {
     Owner = owner;
-    Pos = vec2(CORE_FRand(0.0, SCR_WIDTH), CORE_FRand(0.0, SCR_HEIGHT));
+    Pos = vec2(CORE_FRand(20, SCR_WIDTH - 20), CORE_FRand(20, SCR_HEIGHT - 20));
     Vel = vec2(CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED), CORE_FRand(-MAX_BALL_SPEED, +MAX_BALL_SPEED));
 }
 

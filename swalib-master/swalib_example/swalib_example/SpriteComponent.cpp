@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "..\..\common\core.h"
 #include "MovementComponent.h"
+#include "NewPosMsg.h"
 
 SpriteComponent::SpriteComponent(Entity* Owner, vec2 Size, const char* texturepath, bool alpha)
 {
@@ -40,7 +41,7 @@ void SpriteComponent::LoadTexture(const char* filename, bool _alpha)
 
 void SpriteComponent::draw()
 {
-  CORE_RenderCenteredSprite(pos, size, this->getTexture()->getTextureId());
+  CORE_RenderCenteredSprite(pos, size*2, this->getTexture()->getTextureId());
 }
 
 void SpriteComponent::free()
@@ -52,10 +53,15 @@ void SpriteComponent::free()
 
 void SpriteComponent::Update(float elapsed)
 {
-  pos = owner->FindComponent<MovementComponent>()->get_pos();
+  
 }
 
 void SpriteComponent::RecieveMessage(Message* Msg)
 {
-  
+  NewPosMsg* PosMsg = dynamic_cast<NewPosMsg*>(Msg);
+    
+  if (PosMsg)
+  {
+    pos = PosMsg->Pos;
+  }
 }
