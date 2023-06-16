@@ -7,4 +7,5 @@ public:
     LimitWorldCallMsg(){}
     ~LimitWorldCallMsg(){}
     bool Axis; // X = false, Y = true
+    vec2 VelLimit;
 };

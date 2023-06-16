@@ -1,21 +1,44 @@
 #include "CGameRender.h"
+#include <ctime>
 #include "../../common/font.h"
 #include "../../common/sys.h"
 #include "../../common/stdafx.h"
-#include "EntityManager.h"
 #include "SpriteComponent.h"
 #include "CTexture.h"
-
-extern char text[100];
-extern char text2[100];
-extern char text3[100];
-extern char text4[100];
 
 CGameRender* CGameRender::instance = nullptr;
 
 CGameRender::CGameRender()
 {
 	
+}
+
+void CGameRender::GetTiempos(float fps, float tt, float tl)
+{
+	FPS = fps;
+	tiempotranscurrido = tt;
+	Tiempologica = tl;
+}
+
+void CGameRender::DrawMenu()
+{
+	FONT_DrawString(vec2(120, SCR_HEIGHT/2), "PULSA ENTER PARA EMPEZAR");
+	SYS_Show();
+}
+
+void CGameRender::DrawTexts()
+{
+	char fps[100];
+	char tt[100];
+	char tl[100];
+	sprintf(tt, "TIEMPO DE REAL: %.2f", tiempotranscurrido);
+	sprintf(tl, "TIEMPO DE LOGICA: %.2f", Tiempologica);
+	//sprintf(fps, "MULTIPLICADOR DE TIEMPO: X%.2f", time.getMultiplier());
+	sprintf(fps, "FPS: %.2f", FPS);
+	
+	FONT_DrawString(vec2(0, 0), fps);
+	FONT_DrawString(vec2(0, 25), tt);
+	FONT_DrawString(vec2(0, 50), tl);
 }
 
 void CGameRender::RenderInit()
@@ -37,21 +60,16 @@ void CGameRender::Draw()
 {
 	// Render
 	glClear(GL_COLOR_BUFFER_BIT);	// Clear color buffer to preset values.
+		
+		// Render balls
+		for (int i = 0; i < spritesref.size(); i++) {
+			spritesref[i]->draw();
+		}
+	
+	DrawTexts();
+		// Exchanges the front and back buffers
+		
 
-
-
-	// Render balls
-	for (int i = 0; i < spritesref.size(); i++) {
-		spritesref[i]->draw();
-	}
-
-	// Text
-	FONT_DrawString(vec2(450, 0), text);
-	FONT_DrawString(vec2(0, 0), text2);
-	FONT_DrawString(vec2(0, 50), text3);
-	FONT_DrawString(vec2(0, 100), text4);
-
-	// Exchanges the front and back buffers
 	SYS_Show();
 }
 
@@ -68,6 +86,13 @@ void CGameRender::Draw()
 	 maptexture.clear();
 	 FONT_End();
  }
+
+void CGameRender::PushText(char* string)
+{
+	 char temp [100];
+	 sprintf_s(temp, string);
+	 texts.push_back(temp);
+}
 
 CTexture* CGameRender::LoadTexture(const char* filename, bool _alpha)
 {
@@ -94,3 +119,5 @@ void CGameRender::PushSprite( SpriteComponent& ref)
 {
 	spritesref.push_back(&ref);
 }
+
+

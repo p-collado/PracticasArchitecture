@@ -1,5 +1,6 @@
 #include "CGame.h"
 #include "EntityManager.h"
+#include "CGameRender.h"
 
 void CGame::GameInit()
 {
@@ -14,4 +15,9 @@ void CGame::GameUpdate(double _elapsed)
 void CGame::GameEnd()
 {
 
+}
+
+void CGame::LoadMainMenu()
+{
+	CGameRender::getInstance()->DrawMenu();
 }

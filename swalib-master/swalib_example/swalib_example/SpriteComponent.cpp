@@ -11,6 +11,7 @@ SpriteComponent::SpriteComponent(Entity* Owner, vec2 Size, const char* texturepa
   owner = Owner;
   texture = CGameRender::getInstance()->LoadTexture(texturepath, alpha);
   size = Size;
+  CGameRender::getInstance()->PushSprite(*(this));
 }
 
 
@@ -46,9 +47,7 @@ void SpriteComponent::draw()
 
 void SpriteComponent::free()
 {
-  
   CORE_UnloadPNG(texture->getTextureId());
-  delete texture;
 }
 
 void SpriteComponent::Update(float elapsed)

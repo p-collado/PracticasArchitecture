@@ -6,7 +6,7 @@ class CollisionComponent : public Componente
 {
     vec2 Pos;
     float Radius;
-    vec2 Vel;
+    //vec2 Vel;
 
 public:
     CollisionComponent(Entity* owner, float _Radius);
