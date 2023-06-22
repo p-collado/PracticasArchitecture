@@ -8,13 +8,9 @@ class Entity
 {
 	static int counter;
 	int id;
-	// vec2   pos;	// Position.
-	// vec2   vel;	// Velocity.
-	// //GLuint gfx;	// OpenGL for id. for visualization purposes.
-	// //SpriteComponent renderinfo;
-	// float  radius;	// Radius.
 
 public:
+	bool Enabled;
 	const int getId(){return id;}
 	// inline float getRadius() { return radius; }
 	// inline vec2 getPos() { return pos; }
@@ -24,6 +20,7 @@ public:
 	// void setVel(vec2 _vel);
 	void Slot(double _elapsed);
 	Entity(int id);
+	Entity();
 	std::vector<Componente*> vComponents;
 	void AddComponent(Componente* comp);
 	void SendMsg(Message* Msg) const;

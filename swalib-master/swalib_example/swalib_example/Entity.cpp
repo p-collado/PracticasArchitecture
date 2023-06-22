@@ -47,6 +47,10 @@ Entity::Entity(int _id) /*: renderinfo(filename, false)*/
 	//renderinfo.setSize(vec2(radius * 2, radius * 2));
 }
 
+Entity::Entity()
+{
+}
+
 
 void Entity::AddComponent(Componente* comp)
 {

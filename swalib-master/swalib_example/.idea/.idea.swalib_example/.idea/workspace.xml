@@ -9,20 +9,18 @@
   <component name="ChangeListManager">
     <list default="true" id="af3d5d05-e611-4e50-840a-7d3bd34e3a41" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../common/example.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../common/example.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.swalib_example/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.swalib_example/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.swalib_example/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CBackground.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CBackground.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CGame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CGame.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CGame.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CGameRender.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CGameRender.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CGameRender.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CGameRender.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.swalib_example/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.swalib_example/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swalib_example/CollisionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CollisionComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/CollisionComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/CollisionComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/EntCollisionMsg.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/EntCollisionMsg.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/Entity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/Entity.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swalib_example/EntityManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/EntityManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swalib_example/EntityManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/EntityManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/LimitWorldCallMsg.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/LimitWorldCallMsg.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swalib_example/MovementComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/MovementComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swalib_example/SpriteComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/SpriteComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/MovementComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/MovementComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/Time.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/Time.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/Time.h" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/Time.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swalib_example/swalib_example.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/swalib_example/swalib_example.vcxproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,97 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.36.32532/include/vector" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.36.32532/include/xmemory" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/swalib_example/EntityManager.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -123,6 +212,7 @@
       <workItem from="1686413380921" duration="12632000" />
       <workItem from="1686938605410" duration="6492000" />
       <workItem from="1686947818854" duration="775000" />
+      <workItem from="1687425050953" duration="9217000" />
     </task>
     <servers />
   </component>

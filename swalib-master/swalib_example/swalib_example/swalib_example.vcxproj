@@ -127,6 +127,10 @@
     <ClCompile Include="..\..\common\lodepng.cpp" />
     <ClCompile Include="..\..\common\stdafx.cpp" />
     <ClCompile Include="..\..\common\sys_win.cpp" />
+    <ClCompile Include="AddPositionMsg.cpp" />
+    <ClCompile Include="AddVelocityMsg.cpp" />
+    <ClCompile Include="BallComponent.cpp" />
+    <ClCompile Include="BallGravityMsg.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="CollisionMsg.cpp" />
     <ClCompile Include="EntCollisionMsg.cpp">
@@ -287,10 +291,14 @@
     </ClCompile>
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="HookComponent.cpp" />
     <ClCompile Include="LimitWorldCallMsg.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
+    <ClCompile Include="MultPositionMsg.cpp" />
+    <ClCompile Include="MultVelocityMsg.cpp" />
     <ClCompile Include="NewPosMsg.cpp" />
+    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
@@ -301,6 +309,10 @@
     <ClInclude Include="..\..\common\stdafx.h" />
     <ClInclude Include="..\..\common\sys.h" />
     <ClInclude Include="..\..\common\vector2d.h" />
+    <ClInclude Include="AddPositionMsg.h" />
+    <ClInclude Include="AddVelocityMsg.h" />
+    <ClInclude Include="BallComponent.h" />
+    <ClInclude Include="BallGravityMsg.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="CollisionMsg.h" />
     <ClInclude Include="EntCollisionMsg.h" />
@@ -311,10 +323,14 @@
     <ClInclude Include="Componente.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="HookComponent.h" />
     <ClInclude Include="LimitWorldCallMsg.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="MultPositionMsg.h" />
+    <ClInclude Include="MultVelocityMsg.h" />
     <ClInclude Include="NewPosMsg.h" />
+    <ClInclude Include="PlayerComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>

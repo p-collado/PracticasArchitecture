@@ -2,6 +2,12 @@
 #include "EntityManager.h"
 #include "Entity.h"
 
+Time::Time()
+{
+  setTimeFreq();
+  setTimeStart();
+}
+
 double Time::GetTime()
 {
   return	static_cast<double>(EndTime.QuadPart - StartTime.QuadPart) / (frequency.QuadPart);

@@ -14,6 +14,7 @@ class Time
 	double timeMultiplier = 1.f;
 	double counter = 0.f;
 public:
+	Time();
 	double GetTime();
 	void LogicSlotInit();
 	void setTimeEndTime();

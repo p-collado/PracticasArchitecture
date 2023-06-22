@@ -15,10 +15,9 @@ int Main(void)
 
 	renderref->RenderInit();
 	game.GameInit();
-	game.LoadMainMenu();
-	time.setTimeStart();
+	//time.setTimeStart();
 	//time.setTimeEndTime();
-	time.setTimeFreq();
+	//time.setTimeFreq();
 
 	while (!SYS_GottaQuit())
 	{
@@ -26,9 +25,6 @@ int Main(void)
 
 		if (GetKeyState(' ') & 0x8000)
 		{
-			// game.GameInit();
-			// time.setTimeStart();
-			// time.setTimeEndTime();
 			game.Gamestarted = true;
 		}
 		
@@ -43,17 +39,12 @@ int Main(void)
 			time.CalculateFPS();
 			renderref->GetTiempos(time.getFps(), time.getTiempoTranscurrido(), time.getTiempoLogica());
 			renderref->Draw();
-			//renderref->DrawTexts();
-
 		}
 		else
 		{
 			game.LoadMainMenu();
 		}
-		// renderref->sprintf(text, "FPS: %.2f", time.getFps());
-		// sprintf(text2, "TIEMPO DE REAL: %.2f", time.getTiempoTranscurrido());
-		// sprintf(text3, "TIEMPO DE LOGICA: %.2f", time.getTiempoLogica());
-		// sprintf(text4, "MULTIPLICADOR DE TIEMPO: X%.2f", time.getMultiplier());
+		
 		SYS_Pump();
 	}
 	// Process Windows messages.
