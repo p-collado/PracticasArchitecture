@@ -29,19 +29,6 @@ void MovementComponent::set_vel(const vec2& vel)
 
 void MovementComponent::RecieveMessage(Message* Msg)
 {
-    // EntCollisionMsg* EntMsg = dynamic_cast<EntCollisionMsg*>(Msg);
-    // if(EntMsg)
-    // {
-    //    Vel *= -1;
-    // }
-    //
-    // LimitWorldCallMsg* Limit = dynamic_cast<LimitWorldCallMsg*>(Msg);
-    // if (Limit)
-    // {
-    //     Limit->Axis ? Vel = vec2(Vel.x, Vel.y * -1.f): Vel = vec2(Vel.x * -1.f ,Vel.y);
-    //    // Vel = Limit->VelLimit;
-    // }
-    
     //Multiplicar posicion
     MultPositionMsg* multPosMsg = dynamic_cast<MultPositionMsg*>(Msg);
     if (multPosMsg)

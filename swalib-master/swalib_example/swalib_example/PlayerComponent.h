@@ -20,8 +20,6 @@ private:
   char InputShoot = 'S';
 
   bool ResetInput;
-
-  unsigned int Lives;
   Entity* Shot;
   vec2 Pos;
 

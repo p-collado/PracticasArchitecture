@@ -11,15 +11,11 @@ class CGameRender
   std::vector<SpriteComponent*> spritesref;
   std::vector<char*> texts;
   static CGameRender* instance;
-  bool gamestarted;
   float FPS;
   float tiempotranscurrido;
   float Tiempologica;
 
 public:
-
- /* unsigned int texbkg;
-  unsigned int texsmallball;*/
 
   inline static CGameRender* getInstance() {
     if (instance)
@@ -33,15 +29,18 @@ public:
   }
 
   void GetTiempos(float fps, float tt, float tl);
+  void GetPlayerInfo(int& lives);
   void DrawMenu();
   void DrawTexts();
   void RenderInit();
   void Draw();
   void RenderEnd();
+  void DrawGameOverMenu();
   void PushText(char* string);
   CTexture* LoadTexture(const char* filename, bool _alpha);
   CTexture* getTexture(const char* filename);
   SpriteComponent* getSpriteinPos(int i);
   void PushSprite(SpriteComponent& ref);
+  void DrawWinMenu();
 };
 

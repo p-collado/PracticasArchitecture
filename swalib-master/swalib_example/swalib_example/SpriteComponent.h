@@ -10,6 +10,7 @@ class SpriteComponent : public Componente
     vec2 pos;
     vec2 size;
     Entity* owner;
+    bool Enabled = true;
   
 public:
     SpriteComponent(Entity* Owner, vec2 Size, const char* texturePath, bool Alpha);
@@ -23,8 +24,11 @@ public:
     void LoadTexture(const char* filename, bool _alpha);
     virtual void draw();
     void free();
+    bool GetEnable(){ return Enabled;}
     virtual void Update(float elapsed) override;
     void RecieveMessage(Message* Msg) override;
+    void Disable() {Enabled = false;}
+    void Enable() { Enabled = true;}
 
 };
 

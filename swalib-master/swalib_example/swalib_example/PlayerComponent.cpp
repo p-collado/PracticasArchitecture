@@ -1,14 +1,14 @@
 #include "PlayerComponent.h"
 #include "AddPositionMsg.h"
+#include "CGame.h"
 #include "NewPosMsg.h"
 #include "MovementComponent.h"
 #include "entity.h"
 #include "EntityManager.h"
 
-PlayerComponent::PlayerComponent(Entity* _Eowner, int _lives)
+PlayerComponent::PlayerComponent(Entity* _owner, int _lives)
 {
-  Owner = _Eowner;
-  Lives = _lives;
+  Owner = _owner;
   Shot = EntityManager::getInstance()->CreateShotEntity(vec2(-100, -100));
 }
 
@@ -31,7 +31,7 @@ void PlayerComponent::Update(float _elapsedTime)
   else if ((GetKeyState('S') & 0x8000) && !Shot->Enabled)
   {
     Shot->FindComponent<MovementComponent>()->set_pos(Pos + vec2(0, 30));
-    Shot->Enabled = true;
+    Shot->Enable();
   }
 }
 
@@ -46,10 +46,12 @@ void PlayerComponent::RecieveMessage(Message* message)
 
 void PlayerComponent::removeLife()
 {
-  Lives--;
-  // gameManager::instance()->reload();
-  // if (lives < 0)
-  // {
-  //   //game over
-  // } //TODO
+  CGame* game =  CGame::getInstance();
+  game->set_lives(game->get_lives()-1);
+  
+  if (game->get_lives() >= 0)
+  {
+    game->SetCanRestart(true);
+    //CGame::getInstance()->LoadLevel(CGame::getInstance()->Currentlevel);
+  } 
 }

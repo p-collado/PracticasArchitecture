@@ -5,6 +5,7 @@
 #include "entity.h"
 #include "MultVelocityMsg.h"
 #include "AddVelocityMsg.h"
+#include "CGame.h"
 #include "EntCollisionMsg.h"
 #include "EntityManager.h"
 #include "LimitWorldCallMsg.h"
@@ -50,10 +51,8 @@ void BallComponent::RecieveMessage(Message* message)
       msg2.addValue = vec2(0, 500);
       Owner->SendMsg(&msg2);
     }
-
   }
-
-
+  
   EntCollisionMsg* entCollMsg = dynamic_cast<EntCollisionMsg*>(message);
   if (entCollMsg)
   {
@@ -61,21 +60,19 @@ void BallComponent::RecieveMessage(Message* message)
     if (hookComp)
     {
       hookComp->disableShot();
-      Owner->Enabled = false;
-      //EntityManager::getInstance()->removeBall();
+      Owner->Disable();
+      EntityManager::getInstance()->RemoveBall();
       --splits;
-      Owner->FindComponent<CollisionComponent>()->get_radius();
       EntityManager::getInstance()->SplitBalls(pos, Owner->FindComponent<CollisionComponent>()->get_radius()/2, splits);
-
     }
 
     PlayerComponent* playerComp = entCollMsg->otherEnt->FindComponent<PlayerComponent>();
     if (entCollMsg->otherEnt->FindComponent<PlayerComponent>())
     {
-      Owner->Enabled = false;
+      Owner->Disable();
+      CGame* game = CGame::getInstance();
       playerComp->removeLife();
     }
-    
   }
 
   NewPosMsg* posmsg = dynamic_cast<NewPosMsg*>(message);

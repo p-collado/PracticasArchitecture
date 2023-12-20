@@ -40,10 +40,10 @@ void CollisionComponent::set_radius(const float radius)
     Radius = radius;
 }
 
-CollisionComponent::CollisionComponent(Entity* owner, float _Radius)
+CollisionComponent::CollisionComponent(Entity* owner, float radius)
 {
     Owner = owner;
-    Radius = _Radius;
+    Radius = radius;
 }
 
 void CollisionComponent::Update(float elapsed)

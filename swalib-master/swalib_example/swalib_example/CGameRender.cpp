@@ -1,5 +1,6 @@
 #include "CGameRender.h"
 #include <ctime>
+#include "CGame.h"
 #include "../../common/font.h"
 #include "../../common/sys.h"
 #include "../../common/stdafx.h"
@@ -22,6 +23,7 @@ void CGameRender::GetTiempos(float fps, float tt, float tl)
 
 void CGameRender::DrawMenu()
 {
+	glClear(GL_COLOR_BUFFER_BIT);
 	FONT_DrawString(vec2(120, SCR_HEIGHT/2), "PULSA ENTER PARA EMPEZAR");
 	SYS_Show();
 }
@@ -31,14 +33,13 @@ void CGameRender::DrawTexts()
 	char fps[100];
 	char tt[100];
 	char tl[100];
-	sprintf(tt, "TIEMPO DE REAL: %.2f", tiempotranscurrido);
-	sprintf(tl, "TIEMPO DE LOGICA: %.2f", Tiempologica);
-	//sprintf(fps, "MULTIPLICADOR DE TIEMPO: X%.2f", time.getMultiplier());
-	sprintf(fps, "FPS: %.2f", FPS);
+	char lives[20];
+	sprintf(tt, "TIME: %.2f", tiempotranscurrido);
+	sprintf(lives, "LIVES: %d", CGame::getInstance()->get_lives());
+	//sprintf(fps, "FPS: %.2f", FPS);
 	
-	FONT_DrawString(vec2(0, 0), fps);
+	FONT_DrawString(vec2(0, 50), lives);
 	FONT_DrawString(vec2(0, 25), tt);
-	FONT_DrawString(vec2(0, 50), tl);
 }
 
 void CGameRender::RenderInit()
@@ -63,13 +64,14 @@ void CGameRender::Draw()
 		
 		// Render balls
 		for (int i = 0; i < spritesref.size(); i++) {
-			spritesref[i]->draw();
+			if (spritesref[i]->GetEnable())
+			{
+				spritesref[i]->draw();
+			}
 		}
 	
 	DrawTexts();
 		// Exchanges the front and back buffers
-		
-
 	SYS_Show();
 }
 
@@ -86,6 +88,13 @@ void CGameRender::Draw()
 	 maptexture.clear();
 	 FONT_End();
  }
+
+void CGameRender::DrawGameOverMenu()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	FONT_DrawString(vec2(SCR_WIDTH/2 - 75, SCR_HEIGHT/2), "GAME OVER");
+	SYS_Show();
+}
 
 void CGameRender::PushText(char* string)
 {
@@ -118,6 +127,13 @@ SpriteComponent* CGameRender::getSpriteinPos(int i)
 void CGameRender::PushSprite( SpriteComponent& ref)
 {
 	spritesref.push_back(&ref);
+}
+
+void CGameRender::DrawWinMenu()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	FONT_DrawString(vec2(SCR_WIDTH/2 - 75, SCR_HEIGHT/2), "YOU WIN");
+	SYS_Show();
 }
 
 

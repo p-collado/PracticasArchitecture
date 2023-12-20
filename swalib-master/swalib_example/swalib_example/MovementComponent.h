@@ -6,7 +6,7 @@ class MovementComponent : public Componente
 {
     vec2 Vel;
     vec2 Pos;
-    float MAX_BALL_SPEED = 8.f * 60;
+    float MAX_BALL_SPEED = 8.f * 20;
     float MaxBounce = 500.f;
     
 public:

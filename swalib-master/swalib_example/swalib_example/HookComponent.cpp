@@ -24,5 +24,5 @@ void HookComponent::RecieveMessage(Message* message)
 void HookComponent::disableShot()
 {
   Owner->FindComponent<MovementComponent>()->set_pos(vec2(-100, -100));
-  Owner->Enabled = 0;
+  Owner->Disable();
 }
